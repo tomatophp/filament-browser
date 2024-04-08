@@ -3,6 +3,7 @@
 namespace TomatoPHP\FilamentBrowser\Console;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\File;
 use TomatoPHP\ConsoleHelpers\Traits\RunCommand;
 
 class FilamentBrowserInstall extends Command
@@ -37,11 +38,10 @@ class FilamentBrowserInstall extends Command
     public function handle()
     {
         $this->info('Publish Vendor Assets');
-        $this->callSilent('optimize:clear');
-        $this->yarnCommand(['install']);
-        $this->yarnCommand(['build']);
-        $this->artisanCommand(["migrate"]);
+        if(!File::exists(public_path('js/filament-browser.js'))){
+            File::copyDirectory(__DIR__ . '/../../publish', public_path());
+        }
         $this->artisanCommand(["optimize:clear"]);
-        $this->info('filamentBrowser installed successfully.');
+        $this->info('Filament Browser installed successfully.');
     }
 }

@@ -4,9 +4,14 @@ namespace TomatoPHP\FilamentBrowser\Pages;
 
 use Filament\Pages\Page;
 use Illuminate\Support\Facades\File;
+use TomatoPHP\FilamentDeveloperGate\Traits\DeveloperGateLogoutAction;
+use TomatoPHP\FilamentDeveloperGate\Traits\InteractWithDeveloperGate;
 
 class Browser extends Page
 {
+    use InteractWithDeveloperGate;
+    use DeveloperGateLogoutAction;
+
     protected static ?string $navigationIcon = 'heroicon-o-folder';
 
     protected static ?string $pageHeading = 'Browser';
@@ -17,7 +22,12 @@ class Browser extends Page
 
     public static function getNavigationLabel(): string
     {
-        return __('Browser');
+        return trans('filament-browser::messages.title');
+    }
+
+    public function getTitle(): string
+    {
+        return trans('filament-browser::messages.title');
     }
 
     protected function getViewData(): array
@@ -74,33 +84,5 @@ class Browser extends Page
         ];
     }
 
-    public static function navigationGroup(?string $group): void
-    {
-        static::$navigationGroup = $group;
-    }
 
-    public static function navigationIcon(?string $icon): void
-    {
-        static::$navigationIcon = $icon;
-    }
-
-    public static function navigationSort(?int $sort): void
-    {
-        static::$navigationSort = $sort;
-    }
-
-    public static function navigationLabel(?string $string): void
-    {
-        static::$navigationLabel = $string;
-    }
-
-    public static function heading(?string $string): void
-    {
-        static::$pageHeading = $string;
-    }
-
-    protected function getHeading(): string
-    {
-        return static::$pageHeading;
-    }
 }

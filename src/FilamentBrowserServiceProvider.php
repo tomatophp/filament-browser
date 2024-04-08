@@ -47,7 +47,7 @@ class FilamentBrowserServiceProvider extends ServiceProvider
 
         //Register Routes
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
-
+        
     }
 
     public function boot(): void

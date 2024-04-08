@@ -4,6 +4,13 @@
 
 File & Folders & Media Browser With Code Editor
 
+## Screenshots
+
+![Screenshot](./arts/browser.png)
+![Screenshot](./arts/browser-editor.png)
+![Screenshot](./arts/browser-media.png)
+![Screenshot](./arts/browser-image.png)
+
 ## Installation
 
 ```bash
@@ -13,6 +20,12 @@ after install your package please run this command
 
 ```bash
 php artisan filament-browser:install
+```
+
+finally reigster the plugin on `/app/Providers/Filament/AdminPanelProvider.php`
+
+```php
+->plugin(\TomatoPHP\FilamentBrowser\FilamentBrowserPlugin::make())
 ```
 
 ## Publish Assets

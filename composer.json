@@ -5,7 +5,10 @@
     "keywords": [
         "php",
         "laravel",
-        "template"
+        "browser",
+        "filament",
+        "file",
+        "folder"
     ],
     "license": "MIT",
     "autoload": {

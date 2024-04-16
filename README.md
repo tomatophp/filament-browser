@@ -1,15 +1,20 @@
-![Screenshot](./arts/screenshot.png)
+![Screenshot](https://github.com/tomatophp/filament-artisan/blob/master/arts/3x1io-tomato-browser.jpg)
 
 # Filament browser
+
+[![Latest Stable Version](https://poser.pugx.org/tomatophp/filament-browser/version.svg)](https://packagist.org/packages/tomatophp/filament-browser)
+[![PHP Version Require](http://poser.pugx.org/tomatophp/filament-browser/require/php)](https://packagist.org/packages/tomatophp/filament-browser)
+[![License](https://poser.pugx.org/tomatophp/filament-browser/license.svg)](https://packagist.org/packages/tomatophp/filament-browser)
+[![Downloads](https://poser.pugx.org/tomatophp/filament-browser/d/total.svg)](https://packagist.org/packages/tomatophp/filament-browser)
 
 File & Folders & Media Browser With Code Editor
 
 ## Screenshots
 
-![Screenshot](./arts/browser.png)
-![Screenshot](./arts/browser-editor.png)
-![Screenshot](./arts/browser-media.png)
-![Screenshot](./arts/browser-image.png)
+![Screenshot](https://github.com/tomatophp/filament-artisan/blob/master/arts/browser.png)
+![Screenshot](https://github.com/tomatophp/filament-artisan/blob/master/arts/browser-editor.png)
+![Screenshot](https://github.com/tomatophp/filament-artisan/blob/master/arts/browser-media.png)
+![Screenshot](https://github.com/tomatophp/filament-artisan/blob/master/arts/browser-image.png)
 
 ## Installation
 

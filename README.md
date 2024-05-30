@@ -9,6 +9,9 @@
 
 File & Folders & Media Browser With Code Editor
 
+> [!CAUTION]
+> This package is for super-admin only and it's not recommended to use it for normal users. because it's give access to all files and folders in your server.
+
 ## Screenshots
 
 ![Screenshot](https://github.com/tomatophp/filament-browser/blob/master/arts/browser.png)

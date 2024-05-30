@@ -30,6 +30,7 @@ class BrowserController extends Controller
             $name = $request->get('file_name');
             $setFilePath = $request->get('file_path');
             $root = str_replace(DIRECTORY_SEPARATOR . $name, '', $request->get('file_path'));
+
         } else {
             $startPath = config('filament-browser.start_path');
             $root = $startPath;
@@ -37,7 +38,12 @@ class BrowserController extends Controller
             $type = "home";
         }
 
-
+        if(!str($root)->contains(base_path())){
+            return response()->json([
+                "error" => true,
+                "message" => __('You are not allowed to access this folder!')
+            ], 403);
+        }
 
         if ($request->has('file_path')) {
             $getFile = File::get($setFilePath);

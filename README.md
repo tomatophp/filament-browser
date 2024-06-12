@@ -1,6 +1,6 @@
 ![Screenshot](https://raw.githubusercontent.com/tomatophp/filament-browser/master/arts/3x1io-tomato-browser.jpg)
 
-# Filament browser
+# Filament File Browser
 
 [![Latest Stable Version](https://poser.pugx.org/tomatophp/filament-browser/version.svg)](https://packagist.org/packages/tomatophp/filament-browser)
 [![PHP Version Require](http://poser.pugx.org/tomatophp/filament-browser/require/php)](https://packagist.org/packages/tomatophp/filament-browser)
@@ -68,7 +68,7 @@ you can join our discord server to get support [TomatoPHP](https://discord.gg/Xq
 
 ## Docs
 
-you can check docs of this package on [Docs](https://docs.tomatophp.com/plugins/laravel-package-generator)
+you can check docs of this package on [Docs](https://docs.tomatophp.com/filament/filament-browser)
 
 ## Changelog
 
@@ -80,7 +80,7 @@ Please see [SECURITY](SECURITY.md) for more information about security.
 
 ## Credits
 
-- [Fady Mondy](mailto:info@3x1.io)
+- [Fady Mondy](https://wa.me/+201207860084)
 
 ## License
 

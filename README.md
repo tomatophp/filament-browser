@@ -36,6 +36,12 @@ finally reigster the plugin on `/app/Providers/Filament/AdminPanelProvider.php`
 ->plugin(\TomatoPHP\FilamentBrowser\FilamentBrowserPlugin::make())
 ```
 
+when you try to access the browser it will ask you about password it's `password` and you can change it from your `.env` file
+
+```env
+DEVELOPER_GATE_PASSWORD=
+```
+
 ## Publish Assets
 
 you can publish config file by use this command

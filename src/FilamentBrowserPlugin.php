@@ -6,6 +6,7 @@ use Filament\Contracts\Plugin;
 use Filament\Panel;
 use Illuminate\View\View;
 use TomatoPHP\FilamentBrowser\Pages\Browser;
+use TomatoPHP\FilamentDeveloperGate\FilamentDeveloperGatePlugin;
 use TomatoPHP\FilamentDeveloperGate\Pages\DeveloperGate;
 
 class FilamentBrowserPlugin implements Plugin
@@ -18,6 +19,7 @@ class FilamentBrowserPlugin implements Plugin
     public function register(Panel $panel): void
     {
         $panel
+            ->plugin(FilamentDeveloperGatePlugin::make())
             ->pages([
                 Browser::class
             ]);

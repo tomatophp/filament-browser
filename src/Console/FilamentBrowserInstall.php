@@ -38,9 +38,6 @@ class FilamentBrowserInstall extends Command
     public function handle()
     {
         $this->info('Publish Vendor Assets');
-        if(!File::exists(public_path('js/filament-browser.js'))){
-            File::copyDirectory(__DIR__ . '/../../publish', public_path());
-        }
         $this->artisanCommand(["optimize:clear"]);
         $this->info('Filament Browser installed successfully.');
     }

@@ -1,0 +1,29 @@
+{
+    "name": "FilamentBrowser",
+    "alias": "filament-browser",
+    "description": {
+        "ar": "قم بإدارة وتعديل الملفات وتصفح الملفات من خلال وجهة المستخدم",
+        "en": "File & Folders & Media Browser With Code Editor",
+        "gr": "File & Folders & Media Browser With Code Editor",
+        "sp": "File & Folders & Media Browser With Code Editor"
+    },
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "TomatoPHP\\FilamentBrowser\\FilamentBrowserServiceProvider"
+    ],
+    "files": [],
+    "title": {
+        "ar": "مدير الملفات",
+        "en": "File Browser",
+        "gr": "File Browser",
+        "sp": "File Browser"
+    },
+    "color": "#cc1448",
+    "icon": "heroicon-c-command-line",
+    "placeholder": "https://raw.githubusercontent.com/tomatophp/filament-browser/master/arts/3x1io-tomato-browser.jpg",
+    "type": "plugin",
+    "version": "v2.0.1",
+    "github" : "https://github.com/tomatophp/filament-browser",
+    "docs" : "https://github.com/tomatophp/filament-browser"
+}

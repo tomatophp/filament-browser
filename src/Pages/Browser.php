@@ -262,6 +262,11 @@ class Browser extends Page implements HasTable
     {
         return trans('filament-browser::messages.title');
     }
+    
+    public static function getNavigationGroup(): ?string
+    {
+        return trans('filament-browser::messages.group');
+    }
 
     public function getTitle(): string
     {

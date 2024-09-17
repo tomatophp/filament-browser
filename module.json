@@ -23,7 +23,7 @@
     "icon": "heroicon-c-command-line",
     "placeholder": "https://raw.githubusercontent.com/tomatophp/filament-browser/master/arts/3x1io-tomato-browser.jpg",
     "type": "plugin",
-    "version": "v2.0.1",
+    "version": "v2.0.2",
     "github" : "https://github.com/tomatophp/filament-browser",
     "docs" : "https://github.com/tomatophp/filament-browser"
 }

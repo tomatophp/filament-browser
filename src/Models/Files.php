@@ -15,7 +15,7 @@ class Files extends Model
     {
         $filterFiles = filament('filament-browser')->hiddenFiles;
         $filterFolders = filament('filament-browser')->hiddenFolders;
-        $filterExtantions = filament('filament-browser')->hiddenExtantions;
+        $filterExtensions = filament('filament-browser')->hiddenExtensions;
 
         $root = session()->has('filament-browser-path') ? session()->get('filament-browser-path') : (filament('filament-browser')->basePath?: config('filament-browser.start_path'));
         $getFolders = File::directories($root, true);
@@ -34,7 +34,7 @@ class Files extends Model
             }
         }
         foreach ($getFiles as $file){
-            if((!in_array($file->getRealPath(), $filterFiles)) && (!in_array($file->getExtension(), $filterExtantions))){
+            if((!in_array($file->getRealPath(), $filterFiles)) && (!in_array($file->getExtension(), $filterExtensions))){
                 $totalSize = $file->getSize();
                 if($totalSize<1000){
                     $totalSize = $totalSize. 'bytes';

@@ -4,14 +4,13 @@ namespace TomatoPHP\FilamentBrowser;
 
 use Filament\Contracts\Plugin;
 use Filament\Panel;
-use Illuminate\View\View;
 use Nwidart\Modules\Module;
 use TomatoPHP\FilamentBrowser\Pages\Browser;
 use TomatoPHP\FilamentDeveloperGate\FilamentDeveloperGatePlugin;
-use TomatoPHP\FilamentDeveloperGate\Pages\DeveloperGate;
 
 class FilamentBrowserPlugin implements Plugin
 {
+
     private bool $isActive = false;
 
     public function getId(): string
@@ -28,6 +27,7 @@ class FilamentBrowserPlugin implements Plugin
     public bool $allowMarkdown = false;
     public bool $allowCode = false;
     public bool $allowPreview = true;
+    public bool $hideFromPanel = false;
     public array $hiddenFiles = [];
     public array $hiddenExtantions = [];
     public array $hiddenFolders = [];
@@ -105,6 +105,12 @@ class FilamentBrowserPlugin implements Plugin
         return $this;
     }
 
+    public function hideFromPanel(bool $condation = false): static
+    {
+        $this->hideFromPanel = $condation;
+        return $this;
+    }
+
     public function basePath(string $path): static
     {
         $this->basePath = $path;
@@ -139,4 +145,5 @@ class FilamentBrowserPlugin implements Plugin
     {
         return new static();
     }
+
 }

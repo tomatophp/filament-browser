@@ -272,6 +272,11 @@ class Browser extends Page implements HasTable
         return trans('filament-browser::messages.title');
     }
 
+    public static function shouldRegisterNavigation(): bool
+    {
+        return !filament('filament-browser')->hideFromPanel;
+    }
+
     public function getFolderAction(?Files $file = null)
     {
         return Action::make('getFolderAction')

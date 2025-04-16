@@ -29,7 +29,7 @@ class FilamentBrowserPlugin implements Plugin
     public bool $allowCode = false;
     public bool $allowPreview = true;
     public array $hiddenFiles = [];
-    public array $hiddenExtantions = [];
+    public array $hiddenExtensions = [];
     public array $hiddenFolders = [];
     public string $basePath = '';
 
@@ -39,9 +39,9 @@ class FilamentBrowserPlugin implements Plugin
         return $this;
     }
 
-    public function hiddenExtantions(array $extantions): static
+    public function hiddenExtensions(array $extensions): static
     {
-        $this->hiddenExtantions = $extantions;
+        $this->hiddenExtensions = $extensions;
         return $this;
     }
 

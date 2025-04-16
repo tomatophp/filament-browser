@@ -48,7 +48,7 @@ finally reigster the plugin on `/app/Providers/Filament/AdminPanelProvider.php`
         ->hiddenFiles([
             base_path('.env')
         ])
-        ->hiddenExtantions([
+        ->hiddenExtensions([
             "php"
         ])
         ->allowCreateFolder()

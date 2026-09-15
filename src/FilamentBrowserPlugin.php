@@ -7,8 +7,6 @@ use Filament\Panel;
 use Illuminate\View\View;
 use Nwidart\Modules\Module;
 use TomatoPHP\FilamentBrowser\Pages\Browser;
-use TomatoPHP\FilamentDeveloperGate\FilamentDeveloperGatePlugin;
-use TomatoPHP\FilamentDeveloperGate\Pages\DeveloperGate;
 
 class FilamentBrowserPlugin implements Plugin
 {
@@ -121,13 +119,9 @@ class FilamentBrowserPlugin implements Plugin
             $this->isActive = true;
         }
 
-        if($this->isActive) {
-            $panel
-                ->plugin(FilamentDeveloperGatePlugin::make())
-                ->pages([
-                    Browser::class
-                ]);
-        }
+        $panel->pages([
+            Browser::class,
+        ]);
     }
 
     public function boot(Panel $panel): void

@@ -12,9 +12,6 @@
             @endforeach
         </div>
     @else
-        <x-filament-tables::empty-state
-            heading="{{ trans('filament-browser::messages.empty') }}"
-            icon="heroicon-o-x-circle"
-        />
+        <x-filament::empty-state heading="{{ trans('filament-browser::messages.empty') }}" icon="heroicon-o-x-circle" />
     @endif
 </div>

@@ -8,10 +8,10 @@ use Maatwebsite\Excel\Concerns\ToCollection;
 class FileImport implements ToCollection
 {
     /**
-     * @param  Collection  $collection
+     * @param  Collection<array-key, mixed>  $collection
      */
-    public function collection(Collection $collection)
+    public function collection(Collection $collection): void
     {
-        return $collection;
+        //
     }
 }

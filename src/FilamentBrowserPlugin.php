@@ -2,121 +2,193 @@
 
 namespace TomatoPHP\FilamentBrowser;
 
+use Closure;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
-use Illuminate\View\View;
-use Nwidart\Modules\Module;
 use TomatoPHP\FilamentBrowser\Pages\Browser;
+use TomatoPHP\FilamentDeveloperGate\FilamentDeveloperGatePlugin;
 
 class FilamentBrowserPlugin implements Plugin
 {
-    private bool $isActive = false;
+    public bool $allowUpload = false;
+
+    public bool $allowCreateNewFile = false;
+
+    public bool $allowCreateFolder = false;
+
+    public bool $allowDeleteFile = false;
+
+    public bool $allowRenameFile = false;
+
+    public bool $allowEditFile = false;
+
+    public bool $allowMarkdown = false;
+
+    public bool $allowCode = false;
+
+    public bool $allowPreview = true;
+
+    public bool $hideEnvFiles = true;
+
+    public bool $useDeveloperGate = true;
+
+    public bool|Closure $authorizeUsing = true;
+
+    /** @var array<int, string> */
+    public array $hiddenFiles = [];
+
+    /** @var array<int, string> */
+    public array $hiddenExtensions = [];
+
+    /** @var array<int, string> */
+    public array $hiddenFolders = [];
+
+    public string $basePath = '';
 
     public function getId(): string
     {
         return 'filament-browser';
     }
 
-    public bool $allowUpload = false;
-    public bool $allowCreateNewFile = false;
-    public bool $allowCreateFolder = false;
-    public bool $allowDeleteFile = false;
-    public bool $allowRenameFile = false;
-    public bool $allowEditFile = false;
-    public bool $allowMarkdown = false;
-    public bool $allowCode = false;
-    public bool $allowPreview = true;
-    public array $hiddenFiles = [];
-    public array $hiddenExtensions = [];
-    public array $hiddenFolders = [];
-    public string $basePath = '';
-
+    /**
+     * @param  array<int, string>  $files  absolute paths
+     */
     public function hiddenFiles(array $files): static
     {
         $this->hiddenFiles = $files;
+
         return $this;
     }
 
+    /**
+     * @param  array<int, string>  $extensions
+     */
     public function hiddenExtensions(array $extensions): static
     {
         $this->hiddenExtensions = $extensions;
+
         return $this;
     }
 
+    /**
+     * @param  array<int, string>  $folders  absolute paths
+     */
     public function hiddenFolders(array $folders): static
     {
         $this->hiddenFolders = $folders;
+
         return $this;
     }
 
-    public function allowRenameFile(bool $condation = true): static
+    /**
+     * `.env` and `.env.*` files are hidden by default; pass false to show them.
+     */
+    public function hideEnvFiles(bool $condition = true): static
     {
-        $this->allowRenameFile = $condation;
+        $this->hideEnvFiles = $condition;
+
         return $this;
     }
 
-    public function allowDeleteFile(bool $condation = true): static
+    public function allowRenameFile(bool $condition = true): static
     {
-        $this->allowDeleteFile = $condation;
+        $this->allowRenameFile = $condition;
+
         return $this;
     }
 
-    public function allowUpload(bool $condation = true): static
+    public function allowDeleteFile(bool $condition = true): static
     {
-        $this->allowUpload = $condation;
+        $this->allowDeleteFile = $condition;
+
         return $this;
     }
 
-    public function allowCreateNewFile(bool $condation = true): static
+    public function allowUpload(bool $condition = true): static
     {
-        $this->allowCreateNewFile = $condation;
+        $this->allowUpload = $condition;
+
         return $this;
     }
 
-    public function allowCreateFolder(bool $condation = true): static
+    public function allowCreateNewFile(bool $condition = true): static
     {
-        $this->allowCreateFolder = $condation;
+        $this->allowCreateNewFile = $condition;
+
         return $this;
     }
 
-    public function allowEditFile(bool $condation = true): static
+    public function allowCreateFolder(bool $condition = true): static
     {
-        $this->allowEditFile = $condation;
+        $this->allowCreateFolder = $condition;
+
         return $this;
     }
 
-    public function allowMarkdown(bool $condation = true): static
+    public function allowEditFile(bool $condition = true): static
     {
-        $this->allowMarkdown = $condation;
+        $this->allowEditFile = $condition;
+
         return $this;
     }
 
-    public function allowCode(bool $condation = true): static
+    public function allowMarkdown(bool $condition = true): static
     {
-        $this->allowCode = $condation;
+        $this->allowMarkdown = $condition;
+
         return $this;
     }
 
-    public function allowPreview(bool $condation = true): static
+    public function allowCode(bool $condition = true): static
     {
-        $this->allowPreview = $condation;
+        $this->allowCode = $condition;
+
         return $this;
+    }
+
+    public function allowPreview(bool $condition = true): static
+    {
+        $this->allowPreview = $condition;
+
+        return $this;
+    }
+
+    /**
+     * Protect the browser with tomatophp/filament-developer-gate (enabled by default).
+     */
+    public function developerGate(bool $condition = true): static
+    {
+        $this->useDeveloperGate = $condition;
+
+        return $this;
+    }
+
+    /**
+     * Restrict who can open the browser, e.g. fn () => auth()->user()->isSuperAdmin().
+     */
+    public function authorize(bool|Closure $callback): static
+    {
+        $this->authorizeUsing = $callback;
+
+        return $this;
+    }
+
+    public function isAuthorized(): bool
+    {
+        return (bool) value($this->authorizeUsing);
     }
 
     public function basePath(string $path): static
     {
         $this->basePath = $path;
+
         return $this;
     }
 
-
     public function register(Panel $panel): void
     {
-        if(class_exists(Module::class) && \Nwidart\Modules\Facades\Module::find('FilamentBrowser')?->isEnabled()){
-            $this->isActive = true;
-        }
-        else {
-            $this->isActive = true;
+        if ($this->useDeveloperGate && ! $panel->hasPlugin('filament-developer-gate')) {
+            $panel->plugin(FilamentDeveloperGatePlugin::make());
         }
 
         $panel->pages([
@@ -131,6 +203,6 @@ class FilamentBrowserPlugin implements Plugin
 
     public static function make(): static
     {
-        return new static();
+        return app(static::class);
     }
 }

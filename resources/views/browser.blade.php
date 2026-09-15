@@ -1,3 +1,3 @@
-<x-filament::page>
+<x-filament-panels::page>
     {{ $this->table }}
-</x-filament::page>
+</x-filament-panels::page>

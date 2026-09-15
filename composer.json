@@ -18,7 +18,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "TomatoPHP\\FilamentBrowser\\Tests\\": "tests/src",
+            "TomatoPHP\\FilamentBrowser\\Tests\\Database\\Factories\\": "tests/database/factories"
         }
     },
     "extra": {
@@ -34,12 +35,34 @@
             "email": "info@3x1.io"
         }
     ],
+    "scripts": {
+        "testbench": "vendor/bin/testbench package:discover --ansi",
+        "analyse": "vendor/bin/phpstan analyse src --level=0",
+        "test": "vendor/bin/pest",
+        "format": "vendor/bin/pint"
+    },
     "require": {
-        "php": "^8.1|^8.2",
+        "php": "^8.2",
         "tomatophp/console-helpers": "^1.1",
-        "filament/filament": "^4.0",
-        "maatwebsite/excel": "^3.1",
+        "filament/filament": "^5.0",
+        "tomatophp/filament-developer-gate": "^5.0",
+        "maatwebsite/excel": "^3.1.64|^4.0",
         "mallardduck/blade-boxicons": "^2.4",
         "calebporzio/sushi": "^2.5"
-    }
+    },
+    "require-dev": {
+        "larastan/larastan": "^3.0",
+        "laravel/pint": "^1.24",
+        "orchestra/testbench": "^10.0|^11.0",
+        "pestphp/pest": "^4.0|^5.0",
+        "pestphp/pest-plugin-laravel": "^4.0|^5.0",
+        "pestphp/pest-plugin-livewire": "^4.0|^5.0"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "version": "5.0.0"
 }

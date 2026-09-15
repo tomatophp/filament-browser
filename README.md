@@ -13,6 +13,10 @@ File & Folders & Media Browser With Code Editor
 
 ## Screenshots
 
+![Demo dark](https://raw.githubusercontent.com/tomatophp/filament-browser/master/arts/demo-dark.png)
+![Demo light](https://raw.githubusercontent.com/tomatophp/filament-browser/master/arts/demo-light.png)
+![Markdown preview](https://raw.githubusercontent.com/tomatophp/filament-browser/master/arts/demo-preview.png)
+
 ![Browser](https://raw.githubusercontent.com/tomatophp/filament-browser/master/arts/browser.png)
 ![File Types](https://raw.githubusercontent.com/tomatophp/filament-browser/master/arts/file-types.png)
 ![Create File](https://raw.githubusercontent.com/tomatophp/filament-browser/master/arts/create.png)

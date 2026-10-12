@@ -2,6 +2,12 @@
     "name": "tomatophp/filament-browser",
     "type": "library",
     "description": "File & Folders & Media Browser With Code Editor",
+    "homepage": "https://tomatophp.com/en/plugins/filament-browser",
+    "support": {
+        "issues": "https://github.com/tomatophp/filament-browser/issues",
+        "source": "https://github.com/tomatophp/filament-browser",
+        "docs": "https://tomatophp.com/en/plugins/filament-browser"
+    },
     "keywords": [
         "php",
         "laravel",
